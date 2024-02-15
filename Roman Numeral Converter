@@ -1,0 +1,48 @@
+def roman(num,one,five,ten):
+   if num == 1:
+       return one
+   if num == 2:
+       return one + one
+   if num == 3:
+       return one+one+one
+   if num == 4:
+       return one + five
+   if num ==5 :
+       return five
+   if num == 6:
+       return five + one
+   if num == 7:
+       return five + one + one
+   if num == 8:
+       return five + one + one + one
+   if num == 9:
+       return one + ten
+   else:
+       return ""
+
+
+def roman_num(num):
+    shh = roman(num%10, 'I', 'V', 'X')
+    num = num // 10
+
+    shh = roman(num%10, 'X', 'L', 'V') + shh
+    num = num // 10
+
+    shh = roman(num%10, 'C', 'D', 'M') + shh
+    num = num // 10
+
+    shh = roman(num%10, 'M', 'v', 'x') + shh
+    return shh
+
+
+print("Roman Number Generator. Enter 0 to quit.")
+x= 1
+while 1 <= x <= 9999:
+    this = int(input("Enter a number between 1 and 9,999:"))
+    if this != 0:
+        that = roman_num(this)
+        print('Roman Numerals:', that)
+    else:
+        x = 0
+        print('Roman Numerals: ')
+        print('Bye.')
